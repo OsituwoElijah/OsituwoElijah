@@ -1,0 +1,222 @@
+/* ================================
+   OSITUWO ELIJAH
+   Professional Personal Website
+   ================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+/* ================================
+   HEADER
+   ================================ */
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #111111;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #000000;
+}
+
+/* ================================
+   HERO
+   ================================ */
+
+.hero {
+    max-width: 1000px;
+    margin: auto;
+    padding: 120px 24px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #555555;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 20px auto;
+
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.1;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: 0 auto 35px;
+
+    font-size: 19px;
+    color: #555555;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 26px;
+
+    background: #111111;
+    color: #ffffff;
+
+    text-decoration: none;
+    border-radius: 6px;
+
+    font-weight: 600;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
+
+.button.secondary {
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid #111111;
+}
+
+/* ================================
+   INTRODUCTION
+   ================================ */
+
+.intro {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.intro h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 45px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    padding: 30px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.card p {
+    color: #555555;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+footer {
+    margin-top: 60px;
+    padding: 30px 24px;
+
+    background: #111111;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ================================
+   MOBILE RESPONSIVENESS
+   ================================ */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-text {
+        font-size: 17px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+  }
