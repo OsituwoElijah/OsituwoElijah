@@ -51,7 +51,9 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-links a {
