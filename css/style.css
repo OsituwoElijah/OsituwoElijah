@@ -221,4 +221,90 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-  }
+  }/* ================================
+   CONTACT PAGE
+   ================================ */
+
+.contact-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact-container h1 {
+    margin: 15px 0;
+    font-size: clamp(42px, 7vw, 64px);
+    line-height: 1.1;
+}
+
+.contact-intro {
+    margin-bottom: 40px;
+    color: #555555;
+    font-size: 18px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 16px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    color: #111111;
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #111111;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+
+.contact-form .button {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-note {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #eeeeee;
+}
+
+.contact-note p {
+    color: #666666;
+    font-size: 15px;
+   }
