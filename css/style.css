@@ -308,3 +308,127 @@ footer p {
     color: #666666;
     font-size: 15px;
    }
+
+/* ================================
+   ABOUT PAGE
+   ================================ */
+
+.about-hero {
+    padding: 90px 24px 60px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-hero h1 {
+    margin: 15px 0;
+    font-size: clamp(42px, 7vw, 68px);
+    line-height: 1.1;
+    text-transform: none;
+}
+
+.about-role {
+    max-width: 750px;
+    margin: 20px auto;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.about-intro {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    color: #555555;
+}
+
+.about-hero blockquote {
+    max-width: 650px;
+    margin: 35px auto 0;
+    padding: 20px 25px;
+    border-left: 3px solid #111111;
+    text-align: left;
+    font-size: 20px;
+    font-style: italic;
+    color: #333333;
+}
+
+.about-content {
+    padding: 40px 24px 80px;
+}
+
+.about-section {
+    margin-bottom: 60px;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.about-section p {
+    margin-bottom: 18px;
+    color: #444444;
+    font-size: 17px;
+}
+
+.about-section ul {
+    margin: 20px 0 25px;
+    padding-left: 25px;
+}
+
+.about-section li {
+    margin-bottom: 10px;
+    color: #444444;
+    font-size: 16px;
+}
+
+
+/* ================================
+   ABOUT PAGE MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        padding: 65px 20px 45px;
+    }
+
+    .about-hero h1 {
+        font-size: 42px;
+    }
+
+    .about-role {
+        font-size: 16px;
+    }
+
+    .about-intro {
+        font-size: 17px;
+    }
+
+    .about-hero blockquote {
+        font-size: 18px;
+        padding: 18px 20px;
+    }
+
+    .about-content {
+        padding: 30px 20px 60px;
+    }
+
+    .about-section {
+        margin-bottom: 45px;
+    }
+
+    .about-section h2 {
+        font-size: 28px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+
+       }
