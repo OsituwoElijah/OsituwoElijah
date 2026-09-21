@@ -823,3 +823,39 @@ footer p {
     }
 
 }
+
+/* ================================
+   HEADER PROFILE PHOTO
+   ================================ */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-photo {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #eeeeee;
+}
+
+
+/* ================================
+   PROFILE PHOTO MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+
+    .brand {
+        justify-content: center;
+    }
+
+    .profile-photo {
+        width: 44px;
+        height: 44px;
+    }
+
+   }
