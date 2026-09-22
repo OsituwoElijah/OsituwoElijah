@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://osituwoelijah.github.io/OsituwoElijah/sitemap.xml
