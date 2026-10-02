@@ -105,6 +105,15 @@ Your browser doesn't support video.
 <button id="soundBtn" class="sound-toggle" aria-label="Toggle sound">🔇</button>
 </div>
 
+                <script>
+  const video = document.getElementById('heroVideo');
+  const btn = document.getElementById('soundBtn');
+
+  btn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    btn.textContent = video.muted ? '🔇' : '🔊';
+  });
+                </script>
                     </div>
 
 
