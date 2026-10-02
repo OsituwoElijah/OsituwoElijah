@@ -859,3 +859,28 @@ footer p {
     }
 
    }
+
+.id-card img {
+  width: 100%;      /* image shrinks/grows with its container */
+  height: auto;      /* keeps proportions correct, never stretched */
+  display: block;
+  border-radius: 10px;
+}
+
+.id-deck {
+  display: flex;
+  flex-direction: column;  /* stacked by default — good for phones */
+  gap: 16px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* Once the screen is wide enough (tablet/laptop), go side by side */
+@media (min-width: 760px) {
+  .id-deck {
+    flex-direction: row;
+  }
+  .id-card {
+    flex: 1;
+  }
+}
