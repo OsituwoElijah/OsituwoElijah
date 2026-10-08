@@ -919,3 +919,17 @@ footer p {
 .sound-toggle:hover{
   background: rgba(0,0,0,0.75);
        }
+.icon-badge{
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.icon-badge svg{ width: 22px; height: 22px; }
+
+.icon-badge.blue{ background:#e8f0ff; color:#2b6fee; }
+.icon-badge.green{ background:#eaf6df; color:#4f9a1f; }
+.icon-badge.amber{ background:#fdefdd; color:#c47a12; }
