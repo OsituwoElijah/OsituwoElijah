@@ -173,7 +173,25 @@
 
 
     <script src="js/script.js"></script>
+<script>
+    window.formspree =
+        window.formspree ||
+        function () {
+            (formspree.q = formspree.q || []).push(arguments);
+        };
 
+    formspree('initForm', {
+        formElement: '#contact-form',
+        formId: 'mjykvkvl',
+
+        onSuccess: function () {
+            window.location.href =
+                'https://osituwoelijah.github.io/OsituwoElijah/thank-you.html';
+        }
+    });
+</script>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 
   </html>
