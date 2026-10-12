@@ -301,6 +301,60 @@
 
         </section>
 
+        <style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#07111f,#28446b);
+  color:white;
+}
+
+.card{
+  width:min(90%,420px);
+  padding:30px;
+  text-align:center;
+  border-radius:22px;
+  background:rgba(255,255,255,.12);
+}
+
+button{
+  padding:12px 20px;
+  border:0;
+  border-radius:10px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Hello 👋</h1>
+
+<p>
+Welcome to Elijah's Gallery.
+</p>
+
+<button onclick="showMessage()">
+Click Me
+</button>
+
+</div>
+
+<script>
+function showMessage(){
+  alert("know more about Elijah!");
+}
+</script>
+
+</body>
+</html>
+
     </main>
 
 
