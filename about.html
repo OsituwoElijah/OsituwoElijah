@@ -324,6 +324,333 @@ function showMessage(){
 }
 </script>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery Example</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:Arial, sans-serif;
+    background:#fff;
+    color:#1a1a1a;
+    padding:40px 20px;
+  }
+
+  .hello-box{
+    max-width:600px;
+    margin:0 auto;
+    background:#f7f7f7;
+    border-radius:4px;
+    padding:40px;
+    text-align:left;
+  }
+
+  .hello-box h1{
+    font-size:2.2rem;
+  }
+
+  .hello-box p{
+    margin-top:14px;
+    color:#555;
+  }
+
+  #clickMeBtn{
+    margin-top:24px;
+    padding:12px 22px;
+    background:#fff;
+    border:1px solid #333;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:1rem;
+  }
+
+  #clickMeBtn:hover{
+    background:#1a1a1a;
+    color:#fff;
+  }
+
+  /* ---- GALLERY ---- */
+  #gallerySection{
+    max-width:700px;
+    margin:30px auto 0;
+    display:none; /* hidden until Click Me is pressed */
+  }
+
+  #gallerySection h2{
+    margin-bottom:16px;
+    font-size:1.4rem;
+  }
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-auto-rows:80px;
+    gap:10px;
+  }
+
+  .g-item{
+    background:#ddd;
+    border-radius:6px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#777;
+    font-size:0.8rem;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .g-item img, .g-item video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .play-icon{
+    position:absolute;
+    width:0; height:0;
+    border-left:14px solid #fff;
+    border-top:9px solid transparent;
+    border-bottom:9px solid transparent;
+  }
+
+  /* grid spans, following the sketch: big box, 3 tall boxes, stacked boxes, big square, logo row, bottom strip */
+  .big-left   { grid-column:1 / 2; grid-row:1 / 4; }
+  .tall-1     { grid-column:2 / 3; grid-row:1 / 3; }
+  .tall-2     { grid-column:3 / 4; grid-row:1 / 3; }
+  .tall-3     { grid-column:4 / 5; grid-row:1 / 3; }
+  .stack-1    { grid-column:1 / 2; grid-row:4 / 6; }
+  .stack-2    { grid-column:1 / 2; grid-row:6 / 7; }
+  .big-square { grid-column:2 / 5; grid-row:3 / 7; }
+  .logo-1,.logo-2,.logo-3,.logo-4,.logo-5{
+    grid-row:7 / 8;
+    border-radius:50%;
+    background:#eee;
+  }
+  .logo-1{grid-column:2/3;} .logo-2{grid-column:3/4;} .logo-3{grid-column:4/5;}
+  .logo-4{grid-column:1/2;} .logo-5{grid-column:1/2;grid-row:8/9;}
+  .bottom-strip{ grid-column:1 / 5; grid-row:9 / 10; }
+
+  .carousel{ position:relative; background:#000; }
+  .carousel-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 1s ease;
+  }
+  .carousel-slide.active{ opacity:1; }
+
+  /* ---- LIGHTBOX ---- */
+  #lightbox{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.85);
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+  }
+
+  #lightbox.active{ display:flex; }
+
+  #lightbox-content{
+    max-width:90%;
+    max-height:85%;
+  }
+
+  #lightbox img, #lightbox video{
+    max-width:100%;
+    max-height:85vh;
+    border-radius:4px;
+  }
+
+  #closeLightbox{
+    position:absolute;
+    top:24px;
+    right:32px;
+    color:#fff;
+    font-size:2rem;
+    cursor:pointer;
+    background:none;
+    border:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="hello-box">
+  <h1>Hello 👋</h1>
+  <p>Welcome to Elijah's Gallery.</p>
+  <button id="clickMeBtn">Click Me</button>
+</div>
+
+<section id="gallerySection">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <!-- Photos: data-type="image" -->
+    <div class="g-item big-left" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4"><span class="play-icon"></span></div>
+    <div class="g-item tall-1" data-type="image" data-src="https://picsum.photos/id/1015/300/600">Photo</div>
+    <div class="g-item tall-2" data-type="image" data-src="https://picsum.photos/id/1016/300/600">Photo</div>
+    <div class="g-item tall-3" data-type="image" data-src="https://picsum.photos/id/1018/300/600">Photo</div>
+    <div class="g-item stack-1" data-type="image" data-src="https://picsum.photos/id/1020/400/300">Photo</div>
+    <div class="g-item stack-2" data-type="image" data-src="https://picsum.photos/id/1024/400/200">Photo</div>
+
+    <!-- Video: data-type="video" -->
+    <div class="g-item big-square" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+      <span class="play-icon"></span>
+    </div>
+
+    <!-- Logos (round) -->
+    <div class="g-item logo-1" data-type="image" data-src="https://picsum.photos/id/1035/200/200">Logo</div>
+    <div class="g-item logo-2" data-type="image" data-src="https://picsum.photos/id/1041/200/200">Logo</div>
+    <div class="g-item logo-3" data-type="image" data-src="https://picsum.photos/id/1043/200/200">Logo</div>
+    <div class="g-item logo-4" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4"><span class="play-icon"></span></div>
+    <div class="g-item logo-5" data-type="image" data-src="https://picsum.photos/id/1050/200/200">Photo</div>
+
+    <div class="g-item bottom-strip carousel" id="carousel">
+      <div class="carousel-slide active" data-type="image" data-src="https://picsum.photos/id/1060/1200/300">
+        <img src="https://picsum.photos/id/1060/1200/300">
+      </div>
+      <div class="carousel-slide" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop autoplay playsinline></video>
+      </div>
+      <div class="carousel-slide" data-type="image" data-src="https://picsum.photos/id/1074/1200/300">
+        <img src="https://picsum.photos/id/1074/1200/300">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox popup -->
+<div id="lightbox">
+  <button id="closeLightbox">&times;</button>
+  <div id="lightbox-content"></div>
+</div>
+
+<script>
+  const clickMeBtn = document.getElementById('clickMeBtn');
+  const gallerySection = document.getElementById('gallerySection');
+
+  clickMeBtn.addEventListener('click', () => {
+    gallerySection.style.display =
+      gallerySection.style.display === 'block' ? 'none' : 'block';
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightbox-content');
+  const closeLightbox = document.getElementById('closeLightbox');
+
+  document.querySelectorAll('.g-item').forEach(item => {
+    item.addEventListener('click', () => {
+      let type, src;
+
+      if (item.classList.contains('carousel')) {
+        const active = item.querySelector('.carousel-slide.active');
+        type = active.dataset.type;
+        src = active.dataset.src;
+      } else {
+        type = item.dataset.type;
+        src = item.dataset.src;
+      }
+
+      lightboxContent.innerHTML = '';
+
+      if (type === 'image') {
+        const img = document.createElement('img');
+        img.src = src;
+        lightboxContent.appendChild(img);
+      } else if (type === 'video') {
+        const video = document.createElement('video');
+        video.src = src;
+        video.controls = true;
+        video.autoplay = true;
+        lightboxContent.appendChild(video);
+      }
+
+      lightbox.classList.add('active');
+    });
+  });
+
+  function closeBox() {
+    lightbox.classList.remove('active');
+    lightboxContent.innerHTML = ''; // stops video playback
+  }
+
+  closeLightbox.addEventListener('click', closeBox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeBox();
+  });
+
+  // Carousel: auto-cycles, and can also be swiped left/right by hand
+  const slides = document.querySelectorAll('.carousel-slide');
+  const carouselEl = document.getElementById('carousel');
+  let slideIndex = 0;
+
+  function showSlide(newIndex) {
+    slides[slideIndex].classList.remove('active');
+    slideIndex = (newIndex + slides.length) % slides.length;
+    slides[slideIndex].classList.add('active');
+  }
+
+  function nextSlide() { showSlide(slideIndex + 1); }
+  function prevSlide() { showSlide(slideIndex - 1); }
+
+  let autoCycle = setInterval(nextSlide, 3000);
+
+  // Swipe handling (touch, for phones)
+  let touchStartX = 0;
+
+  carouselEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  carouselEl.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+
+    if (Math.abs(diff) > 40) { // minimum swipe distance
+      clearInterval(autoCycle); // stop auto-cycle once the user takes control
+      if (diff < 0) {
+        nextSlide(); // swiped left -> go to next
+      } else {
+        prevSlide(); // swiped right -> go to previous
+      }
+      autoCycle = setInterval(nextSlide, 3000); // resume auto-cycling after
+    }
+  });
+
+  // Swipe handling (mouse drag, for desktop/testing)
+  let mouseStartX = null;
+
+  carouselEl.addEventListener('mousedown', (e) => {
+    mouseStartX = e.screenX;
+  });
+
+  carouselEl.addEventListener('mouseup', (e) => {
+    if (mouseStartX === null) return;
+    const diff = e.screenX - mouseStartX;
+    mouseStartX = null;
+
+    if (Math.abs(diff) > 40) {
+      clearInterval(autoCycle);
+      if (diff < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      autoCycle = setInterval(nextSlide, 3000);
+    }
+  });
+</script>
+
+</body>
+</html>
+
 
     <footer>
 
