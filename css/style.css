@@ -1052,3 +1052,19 @@ footer p {
   font-weight:bold;
 }
 .carousel-slide.active{ opacity:1; }
+
+
+        gallery 
+#lightbox-content{ max-width:92%; max-height:85%; }
+#lightbox-content img, #lightbox-content video{
+  max-width:100%; max-height:85vh; border-radius:6px; display:block;
+}
+.g-item{ padding:0; background:#eee; }
+.carousel-slide{ overflow:hidden; background:#000; }
+.g-item img, .g-item video, .carousel-slide img, .carousel-slide video{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.logo-1 img, .logo-2 img, .logo-3 img{ object-fit:contain; background:#fff; }
+.g-item .play-icon, .carousel-slide .play-icon{
+  position:absolute; pointer-events:none;
+}
