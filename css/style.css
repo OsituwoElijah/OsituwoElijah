@@ -1163,3 +1163,32 @@ footer p {
     }
 
                   }
+
+/* ================================
+   social-links
+   ================================ */
+footer .social-footer .social-links a{
+  --brand:#fff; --glyph:#fff;
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--glyph); background:var(--brand);
+  border:0; text-decoration:none;
+  transition:transform .25s, box-shadow .25s;
+}
+footer .social-links svg{ width:20px; height:20px; }
+footer .social-links a:hover,
+footer .social-links a:active,
+footer .social-links a:focus-visible{
+  transform:translateY(-4px) scale(1.06);
+  box-shadow:0 0 18px var(--brand);
+}
+footer .social-links .fb{ --brand:#1877F2; }
+footer .social-links .ig{ --brand:#D62976; background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5); }
+footer .social-links .tt{ --brand:#000; border:1px solid #333; }
+footer .social-links .tt svg{ filter:drop-shadow(-1px -1px 0 #25F4EE) drop-shadow(1px 1px 0 #FE2C55); }
+footer .social-links .tt:hover{ box-shadow:0 0 16px #25F4EE, 0 0 16px #FE2C55; }
+footer .social-links .li{ --brand:#0A66C2; }
+footer .social-links .yt{ --brand:#FF0000; }
+footer .social-links .xx{ --brand:#fff; --glyph:#000; }
+
+
